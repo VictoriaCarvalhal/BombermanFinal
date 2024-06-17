@@ -28,7 +28,7 @@ enum ultimoMov
     direita,
     frente,
     tras
-}; // Lógica de jogador/inimigo
+}; // Lógica de movimentação jogador/inimigo
 
 enum StatusJogo
 {
@@ -55,14 +55,11 @@ typedef struct {
 Entidade jogador;
 
 // Definindo status iniciais de cada item do jogo:
-
-//Entidade jogador = {jogador.texture_up ,jogador.texture_up , jogador.texture_down, jogador.texture_left, jogador.texture_right, 1 ,1, vivo};
 Entidade jogador = {1 ,1, vivo};
 Entidade inimigos[3] = {{9, 9, vivo}, {9, 9, vivo}, {9, 9, vivo}};
 Bomba bomba = {-1, -1}; // Coordenadas da bomba, inicialmente fora do mapa
 
 // Definindo variáveis do jogo:
-
 int pontuacao_inicial = 0;
 int pontuacao_final = 0;
 int temporizadorBomba = 0; // Temporizador para detonar a bomba
@@ -89,6 +86,7 @@ void inicializarMapa() {
     }
 }
 
+//Função para renderizar o plano de fundo desejado
 void desenharfundo(SDL_Renderer* renderizador, SDL_Surface* fundo){
     SDL_Rect retangulo;
     retangulo.w = TAMANHO_BLOCO;
@@ -109,7 +107,8 @@ void desenharfundo(SDL_Renderer* renderizador, SDL_Surface* fundo){
     SDL_DestroyTexture(textura);
 
 }
-// Desenha o mapa na tela
+
+// Renderiza o mapa e o plano de fundo do jogo na tela
 void desenharMapa(SDL_Renderer* renderizador) {
     SDL_Rect retangulo;
     retangulo.w = TAMANHO_BLOCO;
@@ -144,7 +143,7 @@ void desenharMapa(SDL_Renderer* renderizador) {
     }
 }
 
-// Desenha um item na tela (jogador, inimigo, bomba)
+// Renderiza o inimigo na tela
 void desenharInimigo(SDL_Renderer* renderizador, Entidade inimigo) {
     if(inimigo.status == vivo)
     {
@@ -183,6 +182,8 @@ void desenharInimigo(SDL_Renderer* renderizador, Entidade inimigo) {
     }
 }
 
+
+//Renderiza o jogador na tela
 void desenharJogador(SDL_Renderer* renderizador, Entidade jogador) {
     if(jogador.status == vivo)
     {
@@ -221,6 +222,7 @@ void desenharJogador(SDL_Renderer* renderizador, Entidade jogador) {
     }
 }
 
+//Renderiza a bomba na tela
 void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
     SDL_Texture* textura = NULL;
     SDL_Surface* superficie = IMG_Load("Props\\bomba.png");
@@ -239,6 +241,7 @@ void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
     SDL_RenderCopy(renderizador, textura, NULL, &retangulo);
 }
 
+//Renderiza a explosão da bomba na tela
 void desenharBombaExplodida(SDL_Renderer* renderizador, Bomba bomba){
     SDL_Texture* textura = NULL;
     SDL_Surface* superficie = IMG_Load("Props\\bombaexplodida.png");
@@ -399,7 +402,7 @@ int renderizarTexto(SDL_Renderer* renderizador, TTF_Font* fonte, const char* tex
     SDL_DestroyTexture(textura);
 }
 
-// Exibe o menu principal na tela
+// Renderiza o menu principal na tela
 void exibirMenuPrincipal(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
@@ -409,7 +412,7 @@ void exibirMenuPrincipal(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_RenderPresent(renderizador);
 }
 
-// Exibe o menu de dificuldade na tela
+// Renderiza o menu de dificuldade na tela
 void exibirMenuDificuldade(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
@@ -419,7 +422,7 @@ void exibirMenuDificuldade(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_RenderPresent(renderizador);
 }
 
-// Exibe a tela para inserir o nome do jogador
+// Renderiza a tela para inserir o nome do jogador
 void exibirInserirNome(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
@@ -435,7 +438,7 @@ void exibirInserirNome(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_RenderPresent(renderizador);
 }
 
-// Exibe o menu de pausa na tela (ainda n to iusando)
+// Renderiza o menu de pausa na tela
 void exibirMenuPausa(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
@@ -462,7 +465,7 @@ void atualizarJogo() {
     confere_derrota(); // Ou se ele perdeu
 }
 
-// Salva os dados do jogador no txt
+// Salva os dados do jogador no arquivo de texto
 int SalvarPlacar() {
     if(salvo == 0){
         FILE *pont_arq = fopen("PlacarJogo.txt", "a+");
@@ -504,7 +507,7 @@ int ordenar_e_salvar(const char *nomeArquivo) {
     int contador = 0;
     char line[TAMANHO];
 
-    // Lê o txt
+    // Lê o arquivo
     while (fgets(line, sizeof(line), pont_arq)) {
         if (sscanf(line, "%[^:]: %d", recordes[contador].nome, &recordes[contador].pontuacao) == 2) {
             contador++;
@@ -513,7 +516,7 @@ int ordenar_e_salvar(const char *nomeArquivo) {
     fclose(pont_arq);
 
 
-    // Lógica pra armazenar no txt as pontuações em ordem decrescente
+    // Lógica pra armazenar no arquivo as pontuações em ordem decrescente
     for (int i = 0; i < contador - 1; i++) {
         for (int j = 0; j < contador - 1 - i; j++) {
             if (recordes[j].pontuacao < recordes[j + 1].pontuacao) {
@@ -537,13 +540,13 @@ int ordenar_e_salvar(const char *nomeArquivo) {
     fclose(pont_arq);
 }
 
-// Exibe o menu de placar :p
+// Renderiza o menu de placar :p
 void exibirMenuPlacar(SDL_Renderer* renderizador, TTF_Font* fonte){
     ordenar_e_salvar("PlacarJogo.txt");
-    SDL_Color corTextoTitulo = {0,0,0,255}; // Pretp
-    SDL_Color corPrimeiro = {0, 0, 0, 255}; // Dourado
-    SDL_Color corSegundo = {0, 0, 0, 255}; // Prata
-    SDL_Color corTerceiro = {0, 0, 0, 255}; // Bronze
+    SDL_Color corTextoTitulo = {0,0,0,255}; // Preto
+    SDL_Color corPrimeiro = {0, 0, 0, 255}; // Preto
+    SDL_Color corSegundo = {0, 0, 0, 255}; // Preto
+    SDL_Color corTerceiro = {0, 0, 0, 255}; // Preto
 
     FILE* file = fopen("PlacarJogo.txt", "r");
     while (file == NULL)
@@ -614,7 +617,6 @@ int main(int argc, char* args[]) {
         return 9;
     }
 
-    // Caminho para fonte na sua máquina (Favor substituir toda vez que abrir a pasta do projeto em um novo pc)
     TTF_Font* fonte = TTF_OpenFont("Props\\Arial.ttf", 42);
     if (fonte == NULL)
     {
@@ -826,10 +828,10 @@ int main(int argc, char* args[]) {
             desenharMapa(renderizador);
             desenharJogador(renderizador, jogador);
             for (int i = 0; i < numInimigos; i++) {
-                desenharInimigo(renderizador, inimigos[i]); // Desenha os inimigos em vermelho
+                desenharInimigo(renderizador, inimigos[i]); // Renderiza os inimigos
             }
             if (bomba.x != -1 && bomba.y != -1) {
-                desenharBomba(renderizador, bomba); // Desenha a bomba em amarelo
+                desenharBomba(renderizador, bomba); // Renderiza a bomba
             }
             mover_inimigos();
 
