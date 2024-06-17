@@ -120,7 +120,7 @@ void desenharMapa(SDL_Renderer* renderizador) {
 
     SDL_Texture* textura = NULL;
     SDL_Surface* superficie = NULL;
-    superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\areia.jpg");
+    superficie = IMG_Load("Props\\areia.jpg");
     textura = SDL_CreateTextureFromSurface(renderizador, superficie);
     SDL_FreeSurface(superficie);
 
@@ -152,19 +152,19 @@ void desenharInimigo(SDL_Renderer* renderizador, Entidade inimigo) {
         SDL_Surface* superficie = NULL;
         if(inimigo.ultimoMov == frente)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\inimigo_baixo.png");
+            superficie = IMG_Load("Props\\inimigo_baixo.png");
         }
         else if(inimigo.ultimoMov == tras)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\inimigo_cima.png");
+            superficie = IMG_Load("Props\\inimigo_cima.png");
         }
         else if(inimigo.ultimoMov == esquerda)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\inimigo_esquerda.png");
+            superficie = IMG_Load("Props\\inimigo_esquerda.png");
         }
         else if(inimigo.ultimoMov == direita)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\inimigo_direita.png");
+            superficie = IMG_Load("Props\\inimigo_direita.png");
         }
         textura = SDL_CreateTextureFromSurface(renderizador, superficie);
         SDL_FreeSurface(superficie);
@@ -190,19 +190,19 @@ void desenharJogador(SDL_Renderer* renderizador, Entidade jogador) {
         SDL_Surface* superficie = NULL;
         if(jogador.ultimoMov == frente)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\tras.png");
+            superficie = IMG_Load("Props\\tras.png");
         }
         else if(jogador.ultimoMov == tras)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\frente.png");
+            superficie = IMG_Load("Props\\frente.png");
         }
         else if(jogador.ultimoMov == esquerda)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\esquerda.png");
+            superficie = IMG_Load("Props\\esquerda.png");
         }
         else if(jogador.ultimoMov == direita)
         {
-            superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\direita.png");
+            superficie = IMG_Load("Props\\direita.png");
         }
         textura = SDL_CreateTextureFromSurface(renderizador, superficie);
         SDL_FreeSurface(superficie);
@@ -223,7 +223,7 @@ void desenharJogador(SDL_Renderer* renderizador, Entidade jogador) {
 
 void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
     SDL_Texture* textura = NULL;
-    SDL_Surface* superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\bomba.png");
+    SDL_Surface* superficie = IMG_Load("Props\\bomba.png");
     textura = SDL_CreateTextureFromSurface(renderizador, superficie);
     SDL_FreeSurface(superficie);
 
@@ -241,7 +241,7 @@ void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
 
 void desenharBombaExplodida(SDL_Renderer* renderizador, Bomba bomba){
     SDL_Texture* textura = NULL;
-    SDL_Surface* superficie = IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\bombaexplodida.png");
+    SDL_Surface* superficie = IMG_Load("Props\\bombaexplodida.png");
     textura = SDL_CreateTextureFromSurface(renderizador, superficie);
     SDL_FreeSurface(superficie);
 
@@ -404,7 +404,7 @@ void exibirMenuPrincipal(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
 
-    desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\menu_principal.png"));
+    desenharfundo(renderizador, IMG_Load("Props\\menu_principal.png"));
 
     SDL_RenderPresent(renderizador);
 }
@@ -414,7 +414,7 @@ void exibirMenuDificuldade(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
 
-    desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\menu_dificuldades.png"));
+    desenharfundo(renderizador, IMG_Load("Props\\menu_dificuldades.png"));
 
     SDL_RenderPresent(renderizador);
 }
@@ -426,7 +426,7 @@ void exibirInserirNome(SDL_Renderer* renderizador, TTF_Font* fonte) {
 
     SDL_Color corPreta = {0, 0, 0, 0}; // Preto
 
-    desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\menu_inserirnome.png"));
+    desenharfundo(renderizador, IMG_Load("Props\\menu_inserirnome.png"));
 
     // Renderiza instruções e o nome digitado
     renderizarTexto(renderizador, fonte, "Digite seu nome:", corPreta, 200, ALTURA_TELA / 2 - 50);
@@ -440,7 +440,7 @@ void exibirMenuPausa(SDL_Renderer* renderizador, TTF_Font* fonte) {
     SDL_SetRenderDrawColor(renderizador, 255, 255, 255, 255);
     SDL_RenderClear(renderizador);
 
-    desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\menu_jogopausado.png"));
+    desenharfundo(renderizador, IMG_Load("Props\\menu_jogopausado.png"));
 
     SDL_RenderPresent(renderizador);
 }
@@ -615,7 +615,7 @@ int main(int argc, char* args[]) {
     }
 
     // Caminho para fonte na sua máquina (Favor substituir toda vez que abrir a pasta do projeto em um novo pc)
-    TTF_Font* fonte = TTF_OpenFont("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\Arial.ttf", 42);
+    TTF_Font* fonte = TTF_OpenFont("Props\\Arial.ttf", 42);
     if (fonte == NULL)
     {
         //Erro ao carregar a fonte
@@ -808,7 +808,7 @@ int main(int argc, char* args[]) {
         }
         else if (menuPrincipal == 2 && statusJogo == naoIniciado)
         {
-            desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\menu_placar.png"));
+            desenharfundo(renderizador, IMG_Load("Props\\menu_placar.png"));
             exibirMenuPlacar(renderizador, fonte);
         }
         else if (statusJogo == aguardandoNome)
@@ -822,7 +822,7 @@ int main(int argc, char* args[]) {
         else if(statusJogo == iniciado)
         {
             atualizarJogo();
-            desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\fundo.jpg"));
+            desenharfundo(renderizador, IMG_Load("Props\\fundo.jpg"));
             desenharMapa(renderizador);
             desenharJogador(renderizador, jogador);
             for (int i = 0; i < numInimigos; i++) {
@@ -838,14 +838,14 @@ int main(int argc, char* args[]) {
         }
         else if (statusJogo == derrota)
         {
-            desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\tela_perdeu.png"));
+            desenharfundo(renderizador, IMG_Load("Props\\tela_perdeu.png"));
 
         }
         else if (statusJogo == vitoria)
         {
             SDL_Color corfim = {255, 255, 255, 0}; // Preto
             char valor[100];
-            desenharfundo(renderizador, IMG_Load("C:\\Users\\vtcar\\Documents\\GitHub\\ProjetoBomberManApresentacao\\sdl2\\tela_ganhou.png"));
+            desenharfundo(renderizador, IMG_Load("Props\\tela_ganhou.png"));
 
             snprintf(valor, sizeof(valor), " Pontuacao: %d", pontuacao_final);
             renderizarTexto(renderizador, fonte, valor, corfim, 210, ALTURA_TELA/2 + 80);
