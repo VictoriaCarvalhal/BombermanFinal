@@ -1,0 +1,16 @@
+"C:\Program Files\JetBrains\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.1.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\vtcar\Documents\GitHub\ProjetoBomberManApresentacao\sdl2 -B C:\Users\vtcar\Documents\GitHub\ProjetoBomberManApresentacao\sdl2\cmake-build-debug
+-- The C compiler identification is GNU 13.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/msys64/mingw64/bin/cc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found SDL2: mingw32;-mwindows;C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/SDL2-2.30.3/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/SDL2-2.30.3/x86_64-w64-mingw32/lib/libSDL2.dll.a  
+-- Found SDL2TTF: mingw32;-mwindows;C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.a;C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  
+-- Found SDL2IMAGE: mingw32;-mwindows;C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/SDL2_image-2.8.2/x86_64-w64-mingw32/lib/libSDL2_image.a;C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/SDL2_image-2.8.2/x86_64-w64-mingw32/lib/libSDL2_image.dll.a  
+-- Configuring done (15.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/cmake-build-debug

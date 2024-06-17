@@ -1,0 +1,6 @@
+Código do main:
+TTF_Font* fonte = TTF_OpenFont("C:\Users\vtcar\Documents\GitHub\ProjetoBomberManApresentacao/sdl2//Arial.ttf", 24);
+
+Código do CMakeList (linha 9 e linha 10): 
+set(SDL2TTF_LIBRARY "mingw32;-mwindows;C:/Users/vtcar/Documents/Nova pasta/OneDrive/Área de Trabalho/BomberManProject/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.a;C:/Users/vtcar/Documents/Nova pasta/OneDrive/Área de Trabalho/BomberManProject/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a")
+set(SDL2TTF_INCLUDE_DIR "C:/Users/vtcar/Documents/Nova pasta/OneDrive/Área de Trabalho/BomberManProject/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2")

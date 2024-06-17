@@ -1,0 +1,3 @@
+C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/cmake-build-debug/CMakeFiles/sdl2.dir
+C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/vtcar/Documents/GitHub/ProjetoBomberManApresentacao/sdl2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
