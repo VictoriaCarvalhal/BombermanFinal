@@ -873,7 +873,6 @@ int main(int argc, char* args[]) {
         SDL_RenderPresent(renderizador);
     }
 
-    free(inimigos);
     TTF_CloseFont(fonte);
     fonte = NULL;
 
@@ -884,6 +883,8 @@ int main(int argc, char* args[]) {
 
     TTF_Quit();
     SDL_Quit();
+    free(inimigos);
+
 
     return 11;
 }
