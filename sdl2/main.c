@@ -56,7 +56,8 @@ Entidade jogador;
 
 // Definindo status iniciais de cada item do jogo:
 Entidade jogador = {1 ,1, vivo};
-Entidade inimigos[3] = {{9, 9, vivo}, {9, 9, vivo}, {9, 9, vivo}};
+//Entidade inimigos[3] = {{9, 9, vivo}, {9, 9, vivo}, {9, 9, vivo}};
+Entidade* inimigos;
 Bomba bomba = {-1, -1}; // Coordenadas da bomba, inicialmente fora do mapa
 
 // Definindo variáveis do jogo:
@@ -660,6 +661,10 @@ int main(int argc, char* args[]) {
                         {
                             case SDLK_1:
                                 numInimigos = 1;
+                                inimigos = realloc(inimigos,numInimigos * sizeof(Entidade));
+                                inimigos->x = 9;
+                                inimigos->y = 9;
+                                inimigos->status = vivo;
                                 pontuacao_inicial = 1000;
                                 pontuacao_final = pontuacao_inicial;
                                 statusJogo = aguardandoNome;
@@ -667,6 +672,12 @@ int main(int argc, char* args[]) {
                                 break;
                             case SDLK_2:
                                 numInimigos = 2;
+                                inimigos = realloc(inimigos,numInimigos * sizeof(Entidade));
+                                for(int i = 0;i<numInimigos;i++){
+                                    inimigos[i].x = 9;
+                                    inimigos[i].y = 9;
+                                    inimigos[i].status = vivo;
+                                }
                                 pontuacao_inicial = 2000;
                                 pontuacao_final = pontuacao_inicial;
                                 statusJogo = aguardandoNome;
@@ -674,6 +685,12 @@ int main(int argc, char* args[]) {
                                 break;
                             case SDLK_3:
                                 numInimigos = 3;
+                                inimigos = realloc(inimigos,numInimigos * sizeof(Entidade));
+                                for(int i = 0;i<numInimigos;i++){
+                                    inimigos[i].x = 9;
+                                    inimigos[i].y = 9;
+                                    inimigos[i].status = vivo;
+                                }
                                 pontuacao_inicial = 3000;
                                 pontuacao_final = pontuacao_inicial;
                                 statusJogo = aguardandoNome;
@@ -856,6 +873,7 @@ int main(int argc, char* args[]) {
         SDL_RenderPresent(renderizador);
     }
 
+    free(inimigos);
     TTF_CloseFont(fonte);
     fonte = NULL;
 
