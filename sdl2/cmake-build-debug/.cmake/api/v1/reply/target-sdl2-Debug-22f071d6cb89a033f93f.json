@@ -59,15 +59,15 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/bibibes/Documents/GitHub/BombermanFinal/sdl2/SDL2-2.30.3/x86_64-w64-mingw32/include/SDL2"
+					"path" : "C:/Users/vtcar/Documents/GitHub/BombermanFinal/sdl2/SDL2-2.30.3/x86_64-w64-mingw32/include/SDL2"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/bibibes/Documents/GitHub/BombermanFinal/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2"
+					"path" : "C:/Users/vtcar/Documents/GitHub/BombermanFinal/sdl2/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/bibibes/Documents/GitHub/BombermanFinal/sdl2/SDL2_image-2.8.2/X86_64-w64-mingw32/include/SDL2"
+					"path" : "C:/Users/vtcar/Documents/GitHub/BombermanFinal/sdl2/SDL2_image-2.8.2/X86_64-w64-mingw32/include/SDL2"
 				}
 			],
 			"language" : "C",
@@ -110,32 +110,12 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-lmingw32",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-mwindows",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.dll.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
 				"role" : "libraries"
 			},
 			{
@@ -150,12 +130,32 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.dll.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.dll.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lmingw32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mwindows",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.dll.a",
 				"role" : "libraries"
 			},
 			{
@@ -165,32 +165,32 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2-2.30.3\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.dll.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_ttf-2.22.0\\x86_64-w64-mingw32\\lib\\libSDL2_ttf.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibibes\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.dll.a",
+				"fragment" : "C:\\Users\\vtcar\\Documents\\GitHub\\BombermanFinal\\sdl2\\SDL2_image-2.8.2\\x86_64-w64-mingw32\\lib\\libSDL2_image.dll.a",
 				"role" : "libraries"
 			},
 			{
