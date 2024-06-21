@@ -145,24 +145,24 @@ void desenharMapa(SDL_Renderer* renderizador) {
 }
 
 // Renderiza o inimigo na tela
-void desenharInimigo(SDL_Renderer* renderizador, Entidade inimigo) {
-    if(inimigo.status == vivo)
+void desenharInimigo(SDL_Renderer* renderizador, Entidade* inimigo) {
+    if(inimigo->status == vivo)
     {
         SDL_Texture* textura = NULL;
         SDL_Surface* superficie = NULL;
-        if(inimigo.ultimoMov == frente)
+        if(inimigo->ultimoMov == frente)
         {
             superficie = IMG_Load("Props\\inimigo_baixo.png");
         }
-        else if(inimigo.ultimoMov == tras)
+        else if(inimigo->ultimoMov == tras)
         {
             superficie = IMG_Load("Props\\inimigo_cima.png");
         }
-        else if(inimigo.ultimoMov == esquerda)
+        else if(inimigo->ultimoMov == esquerda)
         {
             superficie = IMG_Load("Props\\inimigo_esquerda.png");
         }
-        else if(inimigo.ultimoMov == direita)
+        else if(inimigo->ultimoMov == direita)
         {
             superficie = IMG_Load("Props\\inimigo_direita.png");
         }
@@ -173,8 +173,8 @@ void desenharInimigo(SDL_Renderer* renderizador, Entidade inimigo) {
         SDL_Rect retangulo;
         int eixoX = (LARGURA_TELA - LARGURA_MAPA * TAMANHO_BLOCO) / 2;
         int eixoY = (ALTURA_TELA - ALTURA_MAPA * TAMANHO_BLOCO) / 2;
-        retangulo.x = eixoX + inimigo.x * TAMANHO_BLOCO;
-        retangulo.y = eixoY + inimigo.y * TAMANHO_BLOCO;
+        retangulo.x = eixoX + inimigo->x * TAMANHO_BLOCO;
+        retangulo.y = eixoY + inimigo->y * TAMANHO_BLOCO;
 
         retangulo.w = TAMANHO_BLOCO;
         retangulo.h = TAMANHO_BLOCO;
@@ -183,38 +183,61 @@ void desenharInimigo(SDL_Renderer* renderizador, Entidade inimigo) {
     }
 }
 
-
 //Renderiza o jogador na tela
-void desenharJogador(SDL_Renderer* renderizador, Entidade jogador) {
-    if(jogador.status == vivo)
+void desenharJogador(SDL_Renderer* renderizador, Entidade* jogador) {
+    if(jogador->status == vivo)
     {
         SDL_Texture* textura = NULL;
         SDL_Surface* superficie = NULL;
-        if(jogador.ultimoMov == frente)
-        {
-            superficie = IMG_Load("Props\\tras.png");
-        }
-        else if(jogador.ultimoMov == tras)
-        {
-            superficie = IMG_Load("Props\\frente.png");
-        }
-        else if(jogador.ultimoMov == esquerda)
-        {
-            superficie = IMG_Load("Props\\esquerda.png");
-        }
-        else if(jogador.ultimoMov == direita)
-        {
-            superficie = IMG_Load("Props\\direita.png");
-        }
-        textura = SDL_CreateTextureFromSurface(renderizador, superficie);
-        SDL_FreeSurface(superficie);
 
+        if(strcmp(auxNomeJogador, "raissa") == 0)
+        {
+            if(jogador->ultimoMov == frente)
+            {
+                superficie = IMG_Load("Props\\Dog\\tras.png");
+            }
+            else if(jogador->ultimoMov == tras)
+            {
+                superficie = IMG_Load("Props\\Dog\\frente.png");
+            }
+            else if(jogador->ultimoMov == esquerda)
+            {
+                superficie = IMG_Load("Props\\Dog\\esquerda.png");
+            }
+            else if(jogador->ultimoMov == direita)
+            {
+                superficie = IMG_Load("Props\\Dog\\direita.png");
+            }
+            textura = SDL_CreateTextureFromSurface(renderizador, superficie);
+            SDL_FreeSurface(superficie);
+        }
+        else
+        {
+            if(jogador->ultimoMov == frente)
+            {
+                superficie = IMG_Load("Props\\tras.png");
+            }
+            else if(jogador->ultimoMov == tras)
+            {
+                superficie = IMG_Load("Props\\frente.png");
+            }
+            else if(jogador->ultimoMov == esquerda)
+            {
+                superficie = IMG_Load("Props\\esquerda.png");
+            }
+            else if(jogador->ultimoMov == direita)
+            {
+                superficie = IMG_Load("Props\\direita.png");
+            }
+            textura = SDL_CreateTextureFromSurface(renderizador, superficie);
+            SDL_FreeSurface(superficie);
+        }
 
         SDL_Rect retangulo;
         int eixoX = (LARGURA_TELA - LARGURA_MAPA * TAMANHO_BLOCO) / 2;
         int eixoY = (ALTURA_TELA - ALTURA_MAPA * TAMANHO_BLOCO) / 2;
-        retangulo.x = eixoX + jogador.x * TAMANHO_BLOCO;
-        retangulo.y = eixoY + jogador.y * TAMANHO_BLOCO;
+        retangulo.x = eixoX + jogador->x * TAMANHO_BLOCO;
+        retangulo.y = eixoY + jogador->y * TAMANHO_BLOCO;
 
         retangulo.w = TAMANHO_BLOCO;
         retangulo.h = TAMANHO_BLOCO;
@@ -224,7 +247,7 @@ void desenharJogador(SDL_Renderer* renderizador, Entidade jogador) {
 }
 
 //Renderiza a bomba na tela
-void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
+void desenharBomba(SDL_Renderer* renderizador, Bomba* bomba){
     SDL_Texture* textura = NULL;
     SDL_Surface* superficie = IMG_Load("Props\\bomba.png");
     textura = SDL_CreateTextureFromSurface(renderizador, superficie);
@@ -233,8 +256,8 @@ void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
     SDL_Rect retangulo;
     int eixoX = (LARGURA_TELA - LARGURA_MAPA * TAMANHO_BLOCO) / 2;
     int eixoY = (ALTURA_TELA - ALTURA_MAPA * TAMANHO_BLOCO) / 2;
-    retangulo.x = eixoX + bomba.x * TAMANHO_BLOCO;
-    retangulo.y = eixoY + bomba.y * TAMANHO_BLOCO;
+    retangulo.x = eixoX + bomba->x * TAMANHO_BLOCO;
+    retangulo.y = eixoY + bomba->y * TAMANHO_BLOCO;
 
     retangulo.w = TAMANHO_BLOCO;
     retangulo.h = TAMANHO_BLOCO;
@@ -243,23 +266,62 @@ void desenharBomba(SDL_Renderer* renderizador, Bomba bomba){
 }
 
 //Renderiza a explosão da bomba na tela
-void desenharBombaExplodida(SDL_Renderer* renderizador, Bomba bomba){
+void desenharBombaExplodida(SDL_Renderer* renderizador, Bomba* bomba){
     SDL_Texture* textura = NULL;
     SDL_Surface* superficie = IMG_Load("Props\\bombaexplodida.png");
     textura = SDL_CreateTextureFromSurface(renderizador, superficie);
     SDL_FreeSurface(superficie);
 
-    SDL_Rect retangulo;
+    SDL_Rect retangulo_1, retangulo_2, retangulo_3, retangulo_4, retangulo_5;
     int eixoX = (LARGURA_TELA - LARGURA_MAPA * TAMANHO_BLOCO) / 2;
     int eixoY = (ALTURA_TELA - ALTURA_MAPA * TAMANHO_BLOCO) / 2;
-    retangulo.x = eixoX + bomba.x * TAMANHO_BLOCO;
-    retangulo.y = eixoY + bomba.y * TAMANHO_BLOCO;
-//adicionando explosao da bomba, fundo de areia no mapa de jogo e inves de ter o nome do jogo no menu vai ser uma fotinha
-    retangulo.w = TAMANHO_BLOCO;
-    retangulo.h = TAMANHO_BLOCO;
 
-    SDL_RenderCopy(renderizador, textura, NULL, &retangulo);
-} //deus
+    retangulo_1.x = eixoX + bomba->x * TAMANHO_BLOCO;
+    retangulo_1.y = eixoY + bomba->y * TAMANHO_BLOCO;
+    retangulo_1.w = TAMANHO_BLOCO;
+    retangulo_1.h = TAMANHO_BLOCO;
+    SDL_RenderCopy(renderizador, textura, NULL, &retangulo_1);
+
+    if (mapa[bomba->x+1][bomba->y] != '#')
+    {
+        retangulo_2.x = eixoX + (bomba->x + 1) * TAMANHO_BLOCO;
+        retangulo_2.y = eixoY + bomba->y * TAMANHO_BLOCO;
+        retangulo_2.w = TAMANHO_BLOCO;
+        retangulo_2.h = TAMANHO_BLOCO;
+
+        SDL_RenderCopy(renderizador, textura, NULL, &retangulo_2);
+    }
+
+    if (mapa[bomba->x-1][bomba->y] != '#')
+    {
+        retangulo_3.x = eixoX + (bomba->x - 1) * TAMANHO_BLOCO;
+        retangulo_3.y = eixoY + bomba->y * TAMANHO_BLOCO;
+        retangulo_3.w = TAMANHO_BLOCO;
+        retangulo_3.h = TAMANHO_BLOCO;
+
+        SDL_RenderCopy(renderizador, textura, NULL, &retangulo_3);
+    }
+
+    if (mapa[bomba->x][bomba->y+1] != '#')
+    {
+        retangulo_4.x = eixoX + bomba->x * TAMANHO_BLOCO;
+        retangulo_4.y = eixoY + (bomba->y + 1) * TAMANHO_BLOCO;
+        retangulo_4.w = TAMANHO_BLOCO;
+        retangulo_4.h = TAMANHO_BLOCO;
+
+        SDL_RenderCopy(renderizador, textura, NULL, &retangulo_4);
+    }
+
+    if (mapa[bomba->x][bomba->y-1] != '#')
+    {
+        retangulo_5.x = eixoX + bomba->x * TAMANHO_BLOCO;
+        retangulo_5.y = eixoY + (bomba->y - 1) * TAMANHO_BLOCO;
+        retangulo_5.w = TAMANHO_BLOCO;
+        retangulo_5.h = TAMANHO_BLOCO;
+
+        SDL_RenderCopy(renderizador, textura, NULL, &retangulo_5);
+    }
+}
 
 // Move uma entidade (jogador, inimigo) no mapa
 void moverEntidade(Entidade* entidade, int dx, int dy)
@@ -323,7 +385,9 @@ void detonarBomba()
         for (int i = 0; i < numInimigos; i++)
         {
             // Verifica se a bomba está no range do inimigo
-            if ((bomba.x == inimigos[i].x && abs(bomba.y - inimigos[i].y) == 1) || (bomba.y == inimigos[i].y && abs(bomba.x - inimigos[i].x) == 1)) {
+            if ((bomba.x == inimigos[i].x && abs(bomba.y - inimigos[i].y) == 1)
+                || (bomba.y == inimigos[i].y && abs(bomba.x - inimigos[i].x) == 1)
+                || (bomba.x == inimigos[i].x && bomba.y == inimigos[i].y)){
                 inimigos[i].x = -1;
                 inimigos[i].y = -1;
                 inimigos[i].status = morto;
@@ -720,7 +784,7 @@ int main(int argc, char* args[]) {
                 {
                     if (e.key.keysym.sym == SDLK_RETURN)
                     {
-                        strcat(auxNomeJogador,nomeJogador);
+                        strcpy(auxNomeJogador,nomeJogador);
                         statusJogo = iniciado;
                         SDL_StopTextInput();
                     }
@@ -778,6 +842,8 @@ int main(int argc, char* args[]) {
                             statusJogo = naoIniciado;
                             menuPrincipal = 0;
                             nomeJogador[0] = '\0';
+                            jogador.x = 1;
+                            jogador.y = 1;
                             break;
                     }
                 }
@@ -843,12 +909,16 @@ int main(int argc, char* args[]) {
             atualizarJogo();
             desenharfundo(renderizador, IMG_Load("Props\\fundo.jpg"));
             desenharMapa(renderizador);
-            desenharJogador(renderizador, jogador);
+            desenharJogador(renderizador, &jogador);
             for (int i = 0; i < numInimigos; i++) {
-                desenharInimigo(renderizador, inimigos[i]); // Renderiza os inimigos
+                desenharInimigo(renderizador, &inimigos[i]); // Renderiza os inimigos
             }
             if (bomba.x != -1 && bomba.y != -1) {
-                desenharBomba(renderizador, bomba); // Renderiza a bomba
+                desenharBomba(renderizador, &bomba); // Renderiza a bomba
+            }
+            if(temporizadorBomba == 9)
+            {
+                desenharBombaExplodida(renderizador, &bomba);
             }
             mover_inimigos();
 
@@ -864,7 +934,12 @@ int main(int argc, char* args[]) {
         {
             SDL_Color corfim = {255, 255, 255, 0}; // Preto
             char valor[100];
-            desenharfundo(renderizador, IMG_Load("Props\\tela_ganhou.png"));
+            if(strcmp(auxNomeJogador, "raissa") == 0){
+                desenharfundo(renderizador, IMG_Load("Props\\tela_ganhou_raissa.png"));
+            }
+            else{
+                desenharfundo(renderizador, IMG_Load("Props\\tela_ganhou.png"));
+            }
 
             snprintf(valor, sizeof(valor), " Pontuacao: %d", pontuacao_final);
             renderizarTexto(renderizador, fonte, valor, corfim, 210, ALTURA_TELA/2 + 80);
