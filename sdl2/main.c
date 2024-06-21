@@ -190,7 +190,7 @@ void desenharJogador(SDL_Renderer* renderizador, Entidade* jogador) {
         SDL_Texture* textura = NULL;
         SDL_Surface* superficie = NULL;
 
-        if(strcmp(auxNomeJogador, "raissa") == 0)
+        if(strcmp(nomeJogador, "raissa") == 0)
         {
             if(jogador->ultimoMov == frente)
             {
@@ -418,7 +418,6 @@ void confere_vitoria()
                 jogador.x = 1;
                 jogador.y = 1;
             }
-            nomeJogador[0] = '\0'; //Apaga o nome do jogador
             statusJogo = vitoria;
         }
     }
@@ -439,7 +438,6 @@ void confere_derrota()
                 jogador.x = 1;
                 jogador.y = 1;
             }
-            nomeJogador[0] = '\0'; // Apaga o nome do jogador
             statusJogo = derrota;
             bomba.x = -1;
             bomba.y = -1; // Remove a bomba do mapa
@@ -857,6 +855,7 @@ int main(int argc, char* args[]) {
                     {
                         case SDLK_1:
                             statusJogo = naoIniciado;
+                            nomeJogador[0] = '\0'; //Apaga o nome do jogador
                             menuPrincipal = 0;
                             break;
                     }
@@ -873,6 +872,7 @@ int main(int argc, char* args[]) {
                             break;
                         case SDLK_2:
                             statusJogo = naoIniciado;
+                            nomeJogador[0] = '\0'; // Apaga o nome do jogador
                             menuPrincipal = 0;
                             break;
                     }
@@ -928,13 +928,12 @@ int main(int argc, char* args[]) {
         else if (statusJogo == derrota)
         {
             desenharfundo(renderizador, IMG_Load("Props\\tela_perdeu.png"));
-
         }
         else if (statusJogo == vitoria)
         {
             SDL_Color corfim = {255, 255, 255, 0}; // Preto
             char valor[100];
-            if(strcmp(auxNomeJogador, "raissa") == 0){
+            if(strcmp(nomeJogador, "raissa") == 0){
                 desenharfundo(renderizador, IMG_Load("Props\\tela_ganhou_raissa.png"));
             }
             else{
