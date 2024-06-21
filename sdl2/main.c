@@ -6,7 +6,7 @@
 #include <SDL_ttf.h>
 #include <string.h>
 
-#define LINHAS 100 // Define o máximo de linhas do txt
+#define LINHAS 100 // Define o máximo de linhas do txt (placar)
 #define TAMANHO 100 // Define o tamanho máximo de uma linha do txt
 #define LARGURA_TELA 640 //Define a largura da janela
 #define ALTURA_TELA 480 // Define a altura da janela
